@@ -1,0 +1,24 @@
+{% autoescape off %} 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        h1{
+            color: chocolate;
+        }
+        p{
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hey there, you are almost there!</h1>
+    <p>Please click link to verify your account</p>
+    <a class="underline" href="http://{{ domain }}{% url 'activate' uidb64=uid token=token%}">token</a> 
+</body>
+</html>
+
+{% endautoescape %}

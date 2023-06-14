@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    .style{
+        background-color: red;
+    }
+    #input{
+        background-color: aqua;
+    }
+</style>
+    <div>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {%  endfor %}
+    </div>
+    <h2>Signup</h2>
+    <a href="{% url 'login' %}">login</a>
+
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+         {{ form.as_div }}
+
+         
+
+         <!-- {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+            </div>
+        {% endfor %} -->
+
+        <div>
+            <button type="submit">submit</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    .style{
+        background-color: red;
+    }
+    #input{
+        background-color: aqua;
+    }
+</style>
+    <div>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {%  endfor %}
+    </div>
+    <h2>Login</h2>
+    <a href="{% url 'signup' %}">signup</a>
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+         {{ form.as_div }}
+
+        <div>
+            <button type="submit">submit</button>
+        </div>
+    </form>
+{% endblock %}

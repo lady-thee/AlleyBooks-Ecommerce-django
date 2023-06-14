@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h2>Index page</h2>
+     <h4>{{ request.user.profile.username }}</h4>
+     
+     {% if request.user.is_active %}
+        {% if request.user.is_email_verified %}
+            <p>verified</p>
+        {% else %}
+            <p>not verified</p>
+        {% endif %}
+     <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+    </form>
+        
+
+     {% endif %}
+{% endblock %}

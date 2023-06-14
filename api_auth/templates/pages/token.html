@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    .style{
+        background-color: red;
+    }
+    #input{
+        background-color: aqua;
+    }
+</style>
+    <div>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {%  endfor %}
+    </div>
+    <h2>Token</h2>
+
+
+    <form action="{% url 'token' %}" method="post">
+        {% csrf_token %}
+         {{ form.as_div }}
+
+        <div>
+            <button type="submit">submit</button>
+        </div>
+    </form>
+{% endblock %}
