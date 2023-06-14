@@ -1,0 +1,53 @@
+{% extends 'books_app/templates/base.html' %}
+
+{% block content %}
+<style>
+    div{
+        width: 100%;
+        height: auto;
+        background-color: burlywood;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+        
+    }
+    span{
+        padding: 0.5rem;
+        background-color: red;
+        color: white;
+        border: 1px solid black;
+    }
+</style>
+    <h1>Book Info</h1>
+
+   <div>
+        <!-- {% for book in books %}
+            <a href="{% url 'book' book.id %}">
+                <div>
+                    <img src="{{ book.book_image.url }}" alt="">
+                </div>
+                <h3>{{ book.name }}</h3>
+                <p>{{ book.blob }}</p>
+                <span>{{ book.price }}</span>
+                <br><br>
+                {% for tag in book.genre.all %}
+                    <span>{{ tag }}</span>
+                {% endfor %}
+            </a>
+            <br><br>
+        {% endfor %} -->
+
+        <div>
+            <img src="{{ book.book_image.url }}" alt="">
+            <h3>{{ book.name }}</h3>
+            <p>{{ book.blob }}</p>
+            <span>{{ book.price }}</span>
+            <br><br>
+            {% for tag in book.genre.all %}
+                <span>{{ tag }}</span>
+            {% endfor %}
+        </div>
+        
+   </div>
+{% endblock %}

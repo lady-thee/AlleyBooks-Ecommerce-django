@@ -31,7 +31,7 @@ INSTALLED_APPS = [
 
     'api_auth.apps.ApiAuthConfig',
     'main_app.apps.MainAppConfig',
-
+    'books_app.apps.BooksAppConfig'
 
    
 ]
@@ -54,6 +54,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR, 'api_auth/templates',
             BASE_DIR, 'main_app/templates',
+            BASE_DIR, 'books_app/templates',
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,12 +129,7 @@ EMAIL_HOST_PASSWORD = 'ixeeqynckbccwtji'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_MAIL_SUBJECT = 'Confirm your email'
-EMAIL_MAIL_HTML = 'confirm.html'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_PAGE_TEMPLATE = 'confirm.html'
-EMAIL_MAIL_PLAIN = 'confirm.txt'
-EMAIL_PAGE_DOMAIN = 'http://domain.com'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -151,6 +147,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'staticfiles/')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+
+# MEDIA FILES 
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
